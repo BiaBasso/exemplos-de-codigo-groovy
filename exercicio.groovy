@@ -1,6 +1,6 @@
 def lista = [1, 5, 6, 9, 10, 100, 20, 13, 75]
 
-    println lista*.findAll{it % 3 == 0}
+    println lista.collect{it % 3 == 0}
     
 println "-" * 20    
 
@@ -16,34 +16,40 @@ def nomes = ['Adriano', 'Gustavo', 'Bianca', 'Christopher']
 
     println nomes*.toLowerCase()
     
+    println nomes.collect{it.toLowerCase()} // Melhor usar esse meio
+    
 println "-" * 20    
 
-    println nomes*.toUpperCase()
+    println nomes.collect{it.toLowerCase()}
     
 println "-" * 20
     
-def novoNome = []    
+def nomesMinusculos = []    
     
-    nomes.each{ nomeNormal ->
-        novoNome.add(nomeNormal.toLowerCase())
+    nomes.each{ 
+        nomesMinusculos << it.toLowerCase()
     }
         
-def segundoCaractereMaiusculo = []
-    
-    novoNome.each{ segCaractere ->
-        segundoCaractereMaiusculo.add(segCaractere.replace(segCaractere.substring(1,2), segCaractere.substring(1,2).toUpperCase()))
+def deixandoSegundoCaractereDeNomesMaiusculo = []
+
+    nomesMinusculos.each{ 
+
+    deixandoSegundoCaractereDeNomesMaiusculo << it.substring(0,1) + it.substring(1,2).toUpperCase() + it.substring(2, it.length())
+
     }
                 
-    println segundoCaractereMaiusculo
+    println deixandoSegundoCaractereDeNomesMaiusculo
         
 println "-" * 20
 
-def nomesUltimaLetra = []
+def deixandoUltimoCaractereDeNomesMaiusculo = []
    
-    novoNome.each{ ultimoCaractere ->
-        nomesUltimaLetra.add(ultimoCaractere.replace(ultimoCaractere.substring(ultimoCaractere.length()-1, ultimoCaractere.length()), ultimoCaractere.substring(ultimoCaractere.length()-1,ultimoCaractere.length()).toUpperCase()))
+    nomesMinusculos.each{
+    
+    deixandoUltimoCaractereDeNomesMaiusculo << it.substring(0, it.length()-1) + it.substring(it.length()-1, it.length()).toUpperCase()
+    
     }
     
-    println nomesUltimaLetra
+    println deixandoUltimoCaractereDeNomesMaiusculo
     
-println "-" * 20  
+println "-" * 20 
