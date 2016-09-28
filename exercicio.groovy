@@ -20,7 +20,7 @@ def nomes = ['Adriano', 'Gustavo', 'Bianca', 'Christopher']
     
 println "-" * 20    
 
-    println nomes.collect{it.toLowerCase()}
+    println nomes.collect{it.toUpperCase()}
     
 println "-" * 20
     
