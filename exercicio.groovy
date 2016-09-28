@@ -53,3 +53,15 @@ def deixandoUltimoCaractereDeNomesMaiusculo = []
     println deixandoUltimoCaractereDeNomesMaiusculo
     
 println "-" * 20 
+
+def mudandoUmNomeDaLista = []
+
+    def posicaoDoNome = nomes.getAt(2)
+    
+    nomes.each{
+        mudandoUmNomeDaLista << it.replaceAll(posicaoDoNome, 'Olivia')
+    }
+    
+    println mudandoUmNomeDaLista
+    
+println "-" * 20
