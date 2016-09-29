@@ -1,4 +1,32 @@
-// Map Tutorial
+def sampleMap = [thickness:10, color:'Blue', weight:500, shape:'Circle', price:150]
+
+assert 500 == sampleMap.get('weight')
+
+assert 'Circle' == sampleMap.get('shape')
+
+assert 10 == sampleMap.get('thickness')
+
+assert 150 == sampleMap.get('price')
+
+assert 'Blue' == [shape:'blue'].get('color', 'Blue')
+
+assert 'Red' == [color:'Red', shape:'blue'].get('color', 'Blue')
+
+assert ['Apple':5, 'Banana':6, 'Cat':3] == ['Apple', 'Banana', 'Cat'].collectEntries{ [(it):it.length()] }
+
+assert [p1:100, p2:200, p3:300, p4:400] == [p1:100, p2:200] + [p3:300, p4:400]
+
+def map4 = [p1:100, p2:200, p3:300, p4:400, p5:500]
+
+assert [p4:400, p5:500] == map4.intersect([p4:400, p5:500, p6:600])
+
+//assert [100, 200, 300, 400, 500] == map4.values()
+
+//assert ['p1', 'p2', 'p3', 'p4', 'p5'] == map4.keySet()
+
+//assert ['p1'] == [p1:100, p2:200, p3:300, p4:400, p5:500].min {it.key}
+
+/* Map Tutorial
 
 def personDetails = [firstName:'John', lastName:'Doe', age:25]
     println "First Name: ${personDetails.firstName}"
@@ -127,13 +155,4 @@ println "-" * 15
     
     println "${map4.max {it.key}}"
     println "${map4.max {it.value}}"
-
-
-
-
-
-
-
-
-
-
+*/
