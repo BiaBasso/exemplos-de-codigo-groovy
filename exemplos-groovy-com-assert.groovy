@@ -61,3 +61,39 @@ def interpolatedSlashy = /a ${color} car/
 
 assert interpolatedSlashy == 'a blue car'
 
+// Pegando um elemento de uma lista e usando o assert, para ver se foi verdade
+def list = [5, 6, 7, 8]
+assert list.get(2) == 7
+assert list[2] == 7
+assert list instanceof java.util.List
+
+def emptyList = []
+assert emptyList.size() == 0
+emptyList.add(5)
+assert emptyList.size() == 1
+
+// Clonando listas e verificando com Assert
+def listaA = [7, 8, 9, 7, 1, 0, 5]
+def listaClonada = listaA.clone()
+assert listaClonada == listaA
+
+// Usando comparando multiplicações
+assert [1, 2, 3]*.multiply(2) == [1, 2, 3].collect { it.multiply(2) }
+
+// Exemplos de como organizar por ordem crescente de acordo com uma condição
+def listas = ['abc', 'z', 'xyzuvw', 'Hello', '321']
+assert listas.sort {
+    it.size()
+} == ['z', 'abc', '321', 'Hello', 'xyzuvw']
+
+// O primeiro, compara as chaves e os valores usando o entrySet e o segundo, compra as chaves pelo keySet as Set
+def maps = [1:'a', 2:'b', 3:'c']
+
+def entries = maps.entrySet()
+entries.each { entry ->
+  assert entry.key in [1,2,3]
+  assert entry.value in ['a','b','c']
+}
+
+def keys = maps.keySet()
+assert keys == [1,2,3] as Set
