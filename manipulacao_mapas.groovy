@@ -36,3 +36,6 @@ assert false == estados.containsKey("SP")
 assert ["ES":"Espírito Santo","MG":"Minas Gerais", "RJ":"Rio de Janeiro"] == estados.sort{it.value}
 
 assert ["ES":"Espírito Santo","MG":"Minas Gerais", "RJ":"Rio de Janeiro"] == estados.sort{it.key}
+
+// Exemplo usando first e unique em uma lista com sub-lista dentro
+assert [[1,2,3,3,3,3,4]].first().unique() == [1, 2, 3, 4]
